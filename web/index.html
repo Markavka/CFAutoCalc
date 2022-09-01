@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CFAutoCalc</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="/eel.js"></script>
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<main class="main">
+			<div class="main__container">
+				<!-- Доп информация -->
+				<div class="main__info info-main">
+					<div class="info-main__author">Автор (ник в игре): Кайне</div>
+					<div class="info-main__title">Дополнительная информация:</div>
+					<ul class="info-main__list">
+						<li class="info-main__item">
+							<p class="info-main__text">
+								За основу вычислений взят базовый урон по мобу "Блокер" от P90-Frenzy,
+								равный 11, со
+								следующими характеристиками:<br>Базовая способность - Увеличение скорости стрельбы 3 (макс.)<br>
+								Дополнительная способность - Увеличение урона обычного выстрела 3 (макс.)
+							</p>
+						</li>
+						<li class="info-main__item">
+							<p class="info-main__text">В вычислениях участвуют только следующие боты:</p>
+							<ul class="info-main__bot-list">
+								<li class="info-main__bot info-main__bot_violet">Почётный маршал/Эриния - 50% урон</li>
+								<li class="info-main__bot info-main__bot_violet">Альфа NG - 85% боссам</li>
+								<li class="info-main__bot info-main__bot_red">Ковбой/Краш - 260% крит</li>
+								<li class="info-main__bot info-main__bot_red">Наследие - 17% шанс крита</li>
+								<li class="info-main__bot info-main__bot_red">Бестия - 42% урон</li>
+								<li class="info-main__bot info-main__bot_red">Сикарио/Альфа - 72% мобам/боссам</li>
+								<li class="info-main__bot info-main__bot_yellow">Ирис - 15% шанс крита</li>
+								<li class="info-main__bot info-main__bot_yellow">Fox NG/ Охотница NG - 64% мобам/боссам</li>
+							</ul>
+						</li>
+					</ul>
+
+				</div>
+
+				<form action="#" class="main__form">
+
+					<!-- Доп настройки -->
+					<div class="main__settings settings-additional">
+						<button type="button" class="settings-additional__info">
+							<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+								<title />
+								<g data-name="Layer 57" id="Layer_57">
+									<path class="cls-1"
+										d="M16,31A15,15,0,1,1,31,16,15,15,0,0,1,16,31ZM16,3A13,13,0,1,0,29,16,13,13,0,0,0,16,3Z" />
+									<path class="cls-1" d="M16,24a2,2,0,1,1,2-2A2,2,0,0,1,16,24Zm0-2Z" />
+									<path class="cls-1" d="M16,18a1,1,0,0,1-1-1V8a1,1,0,0,1,2,0v9A1,1,0,0,1,16,18Z" />
+								</g>
+							</svg>
+						</button>
+						<button type="button" class="settings-additional__setting-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+								<path
+									d="M12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Zm8.99-5L19.415,9c-.008-.022-.036-.107-.046-.129l1.11-1.11a2.011,2.011,0,0,0,0-2.842l-1.4-1.4a2,2,0,0,0-1.421-.588h0a2,2,0,0,0-1.419.588L15.07,4.612,15,4.58V3.009A2.011,2.011,0,0,0,12.99,1H11.01A2.011,2.011,0,0,0,9,3.009L9,4.566l-.086.049-.043.016L7.765,3.522a2,2,0,0,0-1.42-.589h0a2,2,0,0,0-1.421.588l-1.4,1.4a2.011,2.011,0,0,0,0,2.842l1.1,1.143c-.013.029-.033.063-.043.093H3.01A2.011,2.011,0,0,0,1,11.009v1.982A2.011,2.011,0,0,0,3.01,15l1.575,0c.008.022.036.107.046.129l-1.11,1.11a2.011,2.011,0,0,0,0,2.842l1.4,1.4a2.059,2.059,0,0,0,2.842,0l1.115-1.115c.022.011.1.047.121.056v1.571A2.011,2.011,0,0,0,11.01,23h1.98A2.011,2.011,0,0,0,15,20.991l0-1.557.129-.065,1.109,1.109a2.058,2.058,0,0,0,2.843,0l1.4-1.4a2.011,2.011,0,0,0,0-2.842l-1.1-1.143c.013-.029.033-.063.043-.093H20.99A2.011,2.011,0,0,0,23,12.991V11.009A2.011,2.011,0,0,0,20.99,9Zm0,4H19.421a2.1,2.1,0,0,0-1.466,3.54l1.109,1.124-1.414,1.4-1.11-1.109A2.1,2.1,0,0,0,13,19.42L12.99,21,11,20.991V19.42a2.043,2.043,0,0,0-1.307-1.881,2.138,2.138,0,0,0-.816-.164,2,2,0,0,0-1.417.58L6.336,19.064l-1.4-1.414,1.108-1.108A2.1,2.1,0,0,0,4.579,13L3,12.991,3.01,11H4.579A2.1,2.1,0,0,0,6.045,7.46L4.936,6.336l1.414-1.4L7.46,6.045a2.04,2.04,0,0,0,2.227.419l.018-.007A2.04,2.04,0,0,0,11,4.58L11.01,3,13,3.009V4.58a2,2,0,0,0,1.227,1.845c.026.013.057.027.087.039a2.038,2.038,0,0,0,2.226-.419l1.124-1.109,1.4,1.414L17.956,7.458A2.1,2.1,0,0,0,19.421,11H20.99l.01.009Z" />
+							</svg>
+						</button>
+						<ul hidden class="settings-additional__body">
+							<li class="settings-additional__item item">
+								<!-- generalBots -->
+								<label for="generalBots">Только общие боты</label>
+								<input type="checkbox" id="generalBots">
+							</li>
+							<li class="settings-additional__item item">
+								<!-- bots -->
+								<label for="bots">Количество ботов</label>
+								<select name="bots" id="bots">
+									<option value="5">5</option>
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</li>
+							<li class="settings-additional__item item">
+								<!-- Level -->
+								<label for="level">Уровень</label>
+								<select name="level" id="level">
+									<option value="30,10,240">40</option>
+									<option value="0,0,0">1-2</option>
+									<option value="10,0,0">3-8</option>
+									<option value="10,5,0">9-14</option>
+									<option value="10,5,120">15-20</option>
+									<option value="20,5,120">21-26</option>
+									<option value="20,10,120">27-32</option>
+									<option value="20,10,240">33-39</option>
+								</select>
+							</li>
+							<li class="settings-additional__item item">
+								<!-- Bullets -->
+								<label for="bullets">Количество выстрелов</label>
+								<input type="number" id="bullets" value="100">
+							</li>
+
+							<li class="settings-additional__item item">
+								<!-- Top -->
+								<label for="top">Количество отображаемых комбинаций</label>
+								<input type="number" id="top" value="10">
+							</li>
+
+						</ul>
+					</div>
+
+					<!-- Основные настройки и руны -->
+					<div class="main__settings settings">
+
+						<!-- Вз/Фиолки -->
+						<div class="settings__various item">
+							<!-- primalBeast -->
+							<label for="primalBeast"><img src="img/bornBeast.png" alt="born Beast"></label>
+							<select name="primalBeast" id="primalBeast">
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select>
+
+							<!-- Violet -->
+							<label for="violet" class="settings__label-violet"><img src="img/violet.png" alt="violet"></label>
+							<input type="number" id="violet" value="200">
+						</div>
+
+
+						<div class="settings__stars"><span>★★★</span></div>
+						<!-- Руны ★★★ -->
+						<div class="settings__stars-wrap">
+							<ul class="settings__list">
+								<!-- S -->
+								<li class="settings__li">
+									<div class="settings__title">S</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageS"><img src="img/d33.png" alt="3S Damage" title="33"></label>
+											<select name="damageS" id="damageS">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateS"><img src="img/r15.png" alt="3S Rate" title="15"></label>
+											<select name="rateS" id="rateS">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critS"><img src="img/c230.png" alt="3S Crit" title="230"></label>
+											<select name="critS" id="critS">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Rate -->
+											<label for="damageRateS"><img src="img/d20r7.png" alt="3S Damage/Rate"
+													title="20/7"></label>
+											<select name="damageRateS" id="damageRateS">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Crit -->
+											<label for="damageCritS"><img src="img/d20c140.png" alt="3S Damage/Crit"
+													title="20/140"></label>
+											<select name="damageCritS" id="damageCritS">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate/Crit -->
+											<label for="rateCritS"><img src="img/r7c140.png" alt="3S Rate/Crit"
+													title="7/140"></label>
+											<select name="rateCritS" id="rateCritS">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- A -->
+								<li class="settings__li">
+									<div class="settings__title">A</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageA"><img src="img/d32.png" alt="3A Damage" title="32"></label>
+											<select name="damageA" id="damageA">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateA"><img src="img/r14.png" alt="3A Rate" title="14"></label>
+											<select name="rateA" id="rateA">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critA"><img src="img/c220.png" alt="3A Crit" title="220"></label>
+											<select name="critA" id="critA">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Rate -->
+											<label for="damageRateA"><img src="img/d17r6.5.png" alt="3A Damage/Rate"
+													title="17/6.5"></label>
+											<select name="damageRateA" id="damageRateA">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Crit -->
+											<label for="damageCritA"><img src="img/d17c135.png" alt="3A Damage/Crit"
+													title="17/135"></label>
+											<select name="damageCritA" id="damageCritA">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate/Crit -->
+											<label for="rateCritA"><img src="img/r6.5c135.png" alt="3A Rate/Crit"
+													title="6.5/135"></label>
+											<select name="rateCritA" id="rateCritA">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- B -->
+								<li class="settings__li">
+									<div class="settings__title">B</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageB"><img src="img/d31.5.png" alt="3B Damage" title="31.5"></label>
+											<select name="damageB" id="damageB">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateB"><img src="img/r13.5.png" alt="3B Rate" title="13.5"></label>
+											<select name="rateB" id="rateB">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critB"><img src="img/c215.png" alt="3B Crit" title="215"></label>
+											<select name="critB" id="critB">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Rate -->
+											<label for="damageRateB"><img src="img/d16r6.png" alt="3B Damage/Rate"
+													title="16/6"></label>
+											<select name="damageRateB" id="damageRateB">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Crit -->
+											<label for="damageCritB"><img src="img/d16c130.png" alt="3B Damage/Crit"
+													title="16/130"></label>
+											<select name="damageCritB" id="damageCritB">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate/Crit -->
+											<label for="rateCritB"><img src="img/r6c130.png" alt="3B Rate/Crit"
+													title="6/130"></label>
+											<select name="rateCritB" id="rateCritB">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- C -->
+								<li class="settings__li">
+									<div class="settings__title">C</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageC"><img src="img/d31.png" alt="3C Damage" title="31"></label>
+											<select name="damageC" id="damageC">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateC"><img src="img/r13.png" alt="3C Rate" title="13"></label>
+											<select name="rateC" id="rateC">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critC"><img src="img/c210.png" alt="3C Crit" title="210"></label>
+											<select name="critC" id="critC">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Rate -->
+											<label for="damageRateC"><img src="img/d15r5.5.png" alt="3C Damage/Rate"
+													title="15/5.5"></label>
+											<select name="damageRateC" id="damageRateC">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Crit -->
+											<label for="damageCritC"><img src="img/d15c125.png" alt="3C Damage/Crit"
+													title="15/125"></label>
+											<select name="damageCritC" id="damageCritC">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate/Crit -->
+											<label for="rateCritC"><img src="img/r5.5c125.png" alt="3C Rate/Crit"
+													title="5.5/125"></label>
+											<select name="rateCritC" id="rateCritC">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- D -->
+								<li class="settings__li">
+									<div class="settings__title">D</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageD"><img src="img/d30.5.png" alt="3D Damage" title="30.5"></label>
+											<select name="damageD" id="damageD">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateD"><img src="img/r12.5.png" alt="3D Rate" title="12.5"></label>
+											<select name="rateD" id="rateD">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critD"><img src="img/c205.png" alt="3D Crit" title="205"></label>
+											<select name="critD" id="critD">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Rate -->
+											<label for="damageRateD"><img src="img/d14r5.png" alt="3D Damage/Rate"
+													title="14/5"></label>
+											<select name="damageRateD" id="damageRateD">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Damage/Crit -->
+											<label for="damageCritD"><img src="img/d14c120.png" alt="3D Damage/Crit"
+													title="14/120"></label>
+											<select name="damageCritD" id="damageCritD">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate/Crit -->
+											<label for="rateCritD"><img src="img/r5c120.png" alt="3D Rate/Crit"
+													title="5/120"></label>
+											<select name="rateCritD" id="rateCritD">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<div class="settings__stars"><span>★★</span></div>
+						<!-- Руны ★★ -->
+						<div class="settings__stars-wrap" hidden>
+							<ul class="settings__list">
+								<!-- S -->
+								<li class="settings__li">
+									<div class="settings__title">S</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageS2"><img src="img/d30.png" alt="2S Damage" title="30"></label>
+											<select name="damageS2" id="damageS2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateS2"><img src="img/r12.png" alt="2S Rate" title="12"></label>
+											<select name="rateS2" id="rateS2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critS2"><img src="img/c200.png" alt="2S Crit" title="200"></label>
+											<select name="critS2" id="critS2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- A -->
+								<li class="settings__li">
+									<div class="settings__title">A</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageA2"><img src="img/d27.png" alt="2A Damage" title="27"></label>
+											<select name="damageA2" id="damageA2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateA2"><img src="img/r11.png" alt="2A Rate" title="11"></label>
+											<select name="rateA2" id="rateA2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critA2"><img src="img/c190.png" alt="2A Crit" title="190"></label>
+											<select name="critA2" id="critA2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- B -->
+								<li class="settings__li">
+									<div class="settings__title">B</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageB2"><img src="img/d24.png" alt="2B Damage" title="24"></label>
+											<select name="damageB2" id="damageB2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateB2"><img src="img/r10.png" alt="2B Rate" title="10"></label>
+											<select name="rateB2" id="rateB2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critB2"><img src="img/c180.png" alt="2B Crit" title="180"></label>
+											<select name="critB2" id="critB2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- C -->
+								<li class="settings__li">
+									<div class="settings__title">C</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageC2"><img src="img/d21.png" alt="2C Damage" title="21"></label>
+											<select name="damageC2" id="damageC2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateC2"><img src="img/r9.png" alt="2C Rate" title="9"></label>
+											<select name="rateC2" id="rateC2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critC2"><img src="img/c170.png" alt="2C Crit" title="170"></label>
+											<select name="critC2" id="critC2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- D -->
+								<li class="settings__li">
+									<div class="settings__title">D</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageD2"><img src="img/d18.png" alt="2D Damage" title="18"></label>
+											<select name="damageD2" id="damageD2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateD2"><img src="img/r8.png" alt="2D Rate" title="8"></label>
+											<select name="rateD2" id="rateD2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critD2"><img src="img/c160.png" alt="2D Crit" title="160"></label>
+											<select name="critD2" id="critD2">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<div class="settings__stars"><span>★</span></div>
+						<!-- Руны ★ -->
+						<div class="settings__stars-wrap" hidden>
+							<ul class="settings__list">
+								<!-- S -->
+								<li class="settings__li">
+									<div class="settings__title">S</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageS1"><img src="img/d16.png" alt="1S Damage" title="16"></label>
+											<select name="damageS1" id="damageS1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateS1"><img src="img/r7.png" alt="1S Rate" title="7"></label>
+											<select name="rateS1" id="rateS1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critS1"><img src="img/c150.png" alt="1S Crit" title="150"></label>
+											<select name="critS1" id="critS1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- A -->
+								<li class="settings__li">
+									<div class="settings__title">A</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageA1"><img src="img/d14.png" alt="1A Damage" title="14"></label>
+											<select name="damageA1" id="damageA1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateA1"><img src="img/r6.png" alt="1A Rate" title="6"></label>
+											<select name="rateA1" id="rateA1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critA1"><img src="img/c140.png" alt="1A Crit" title="140"></label>
+											<select name="critA1" id="critA1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- B -->
+								<li class="settings__li">
+									<div class="settings__title">B</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageB1"><img src="img/d12.png" alt="1B Damage" title="12"></label>
+											<select name="damageB1" id="damageB1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateB1"><img src="img/r5.png" alt="1B Rate" title="5"></label>
+											<select name="rateB1" id="rateB1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critB1"><img src="img/c130.png" alt="1B Crit" title="130"></label>
+											<select name="critB1" id="critB1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- C -->
+								<li class="settings__li">
+									<div class="settings__title">C</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageC1"><img src="img/d10.png" alt="1C Damage" title="10"></label>
+											<select name="damageC1" id="damageC1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateC1"><img src="img/r4.png" alt="1C Rate" title="4"></label>
+											<select name="rateC1" id="rateC1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critC1"><img src="img/c120.png" alt="1C Crit" title="120"></label>
+											<select name="critC1" id="critC1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+								<!-- D -->
+								<li class="settings__li">
+									<div class="settings__title">D</div>
+									<ul class="settings__body">
+										<li class="settings__item item">
+											<!-- Damage -->
+											<label for="damageD1"><img src="img/d8.png" alt="1D Damage" title="8"></label>
+											<select name="damageD1" id="damageD1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Rate -->
+											<label for="rateD1"><img src="img/r3.png" alt="1D Rate" title="3"></label>
+											<select name="rateD1" id="rateD1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+
+										<li class="settings__item item">
+											<!-- Crit -->
+											<label for="critD1"><img src="img/c110.png" alt="1D Crit" title="110"></label>
+											<select name="critD1" id="critD1">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Кнопки -->
+					<div class="main__buttons">
+						<button type="button" id="btn" class="main__button">Посчитать</button>
+						<button type="reset" id="btnClear" class="main__button">Очистить</button>
+					</div>
+				</form>
+
+			</div>
+
+			<!-- Таблица -->
+			<div class="main__body">
+				<table class="main__table table-main"></table>
+			</div>
+		</main>
+	</div>
+
+	<script src="main.js"></script>
+
+</body>
+
+</html>
